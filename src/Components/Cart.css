@@ -1,0 +1,11 @@
+#cart{
+    position: fixed;
+    right: 0%;
+    top: 10%;
+    height: 90vh;
+    width: 50vw;
+    background-color: aliceblue;
+    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 6px 6px 12px #c5c5c5;
+}

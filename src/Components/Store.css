@@ -1,0 +1,23 @@
+#card-btn{
+  float: right;
+  margin-top: -18em;
+  border: solid 2px white ;
+  border-radius: 20px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#card-container{
+    width: 85%;
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#card{
+    
+    width: 30vw;
+}

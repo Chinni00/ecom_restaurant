@@ -1,0 +1,13 @@
+#image{
+    height: 40vh;
+    width: 40vh;
+    border-radius: 50%;
+    float: left;
+}
+#para1{
+    padding: 10px ;
+    text-align: justify;
+}
+#header{
+    padding: 10px 40px;
+}
