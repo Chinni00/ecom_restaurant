@@ -29,28 +29,37 @@ const ContactUs = () => {
       }
     });
      const data = await response.json()
-
+    
+     setFormData({
+      name:'',
+    email:'',
+    phone:''
+     })
 
   }
 
   return (
     <div>
       <Navbar />
-      <form onSubmit={formHandler}>
-        <div>
-          <label htmlFor='name'>Name</label>
-          <input id='name'  placeholder='enter name' name='name' onChange={handleInput} />
-        </div>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input id='email'  placeholder='enter mail' name='email' type='email' onChange={handleInput} />
-        </div>
-        <div>
-          <label htmlFor='phone'>Phone</label>
-          <input id='phone'  placeholder='enter phone no' name='phone' onChange={handleInput} />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
+      <h1 className='text-center mt-5'>Contact Us</h1>
+      <form className=' m-5 border border-dark p-5 rounded' onSubmit={formHandler}>
+      <div class="form-group">
+    <label htmlFor="name">Name</label>
+    <input  class="form-control" id="name" name='name' value={formData.name} placeholder="Enter name" onChange={handleInput} />
+    
+  </div>
+  <div class="form-group">
+    <label htmlFor="exampleInputEmail1">Email address</label>
+    <input type="email" name='email' class="form-control" id="exampleInputEmail1" value={formData.email} aria-describedby="emailHelp" placeholder="Enter email" onChange={handleInput} />
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Phone no</label>
+    <input  name='phone' class="form-control" id="exampleInputPassword1" value={formData.phone} placeholder="phone" onChange={handleInput} />
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
     </div>
   )
 }
