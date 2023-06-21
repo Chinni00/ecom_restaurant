@@ -48,7 +48,7 @@ const ProductDetail = () => {
     ];
 
     const filteredProduct = productsArr.filter((product)=>
-    product.title==productName
+    product.title===productName
     )
     console.log(filteredProduct)
   return (

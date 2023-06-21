@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar';
 
+
 const ContactUs = () => {
+  
   const [formData,setFormData] = useState({
     name:'',
     email:'',
     phone:''
   })
-
 
   const handleInput=(event)=>{
     
@@ -20,7 +21,9 @@ const ContactUs = () => {
 
   }
   const formHandler= async(event)=>{
+
     event.preventDefault()
+    
     const response = await fetch('https://ecom-contactus-default-rtdb.firebaseio.com/contact.json',{
       method:'POST',
       body:JSON.stringify(formData),
@@ -28,13 +31,17 @@ const ContactUs = () => {
         'Content-Type':'application/json'
       }
     });
-     const data = await response.json()
+    
+    const data = await response.json()
+    console.log(data)
     
      setFormData({
-      name:'',
+    name:'',
     email:'',
     phone:''
      })
+
+     alert('thanks for submitting form our admin will contact soon..')
 
   }
 
@@ -42,7 +49,7 @@ const ContactUs = () => {
     <div>
       <Navbar />
       <h1 className='text-center mt-5'>Contact Us</h1>
-      <form className=' m-5 border border-dark p-5 rounded' onSubmit={formHandler}>
+      <form className=' m-5 border border-dark p-5 rounded'  onSubmit={formHandler}>
       <div class="form-group">
     <label htmlFor="name">Name</label>
     <input  class="form-control" id="name" name='name' value={formData.name} placeholder="Enter name" onChange={handleInput} />

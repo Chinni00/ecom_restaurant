@@ -56,8 +56,8 @@ const Login = () => {
         } )
       }
     }).then(data =>{
-      
-      authCtx.login(data.idToken)
+      console.log(data)
+      authCtx.login(data.idToken,data.email)
       navigate('/store')
     }).catch(err=>{
       alert(err.message)

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState ,} from "react";
 
 
 
@@ -12,10 +12,11 @@ const AuthContext = createContext({
 
 export const  AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem('token')
+  const initialEmail = localStorage.getItem('email')
   const [token, setToken] = useState(initialToken);
-  const [userName,setUserName] = useState('');
+  const [userName,setUserName] = useState(initialEmail);
  
-
+  
 
   const userIsLoggedIn = !!token
   const loginHandler=(token,email)=>{
@@ -23,7 +24,7 @@ export const  AuthContextProvider = (props) => {
     setUserName(email)
    
     localStorage.setItem('token',token)
-    localStorage.setItem(email,'')
+    localStorage.setItem('email',email)
      
     // automatically logout after 5minutes
     setTimeout(()=>{
@@ -34,9 +35,8 @@ export const  AuthContextProvider = (props) => {
     setToken(null)
     setUserName('')
     localStorage.removeItem('token')
-    
-   
-    
+    localStorage.removeItem('email')
+     
   }
   const contextValue = {
     token:token,
